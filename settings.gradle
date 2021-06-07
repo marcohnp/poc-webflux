@@ -1,0 +1,4 @@
+rootProject.name = 'poc-webflux'
+
+include 'contract'
+include 'impl'

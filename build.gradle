@@ -1,0 +1,69 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.9.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "io.freefair.lombok" version "5.1.0"
+}
+
+dependencies {
+	compile project(":contract")
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+allprojects {
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: "io.freefair.lombok"
+
+	group = 'com.example'
+	version = "1.0.0-SNAPSHOT"
+
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
+
+	repositories {
+		mavenCentral()
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.boot:spring-boot-dependencies:2.1.9.RELEASE"
+		}
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+		implementation 'org.springframework.boot:spring-boot-starter-webflux'
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'io.projectreactor:reactor-test'
+		testImplementation 'io.projectreactor:reactor-test'
+		testImplementation 'org.mockito:mockito-junit-jupiter'
+		testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+		testImplementation 'org.junit.jupiter:junit-jupiter-api'
+		testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+		testImplementation 'org.junit.jupiter:junit-jupiter-params'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}
