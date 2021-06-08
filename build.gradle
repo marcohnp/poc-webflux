@@ -1,13 +1,25 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.1.9.RELEASE"
+	}
+}
+
 plugins {
+	id "application"
+	id 'java'
 	id 'org.springframework.boot' version '2.1.9.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
 	id "io.freefair.lombok" version "5.1.0"
 }
 
 dependencies {
 	compile project(":contract")
 }
+
+mainClassName = 'com.pocwebflux.PocWebfluxApplication'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -26,7 +38,8 @@ repositories {
 allprojects {
 	apply plugin: 'java'
 	apply plugin: 'io.spring.dependency-management'
-	apply plugin: "io.freefair.lombok"
+	apply plugin: 'io.freefair.lombok'
+	apply plugin: 'org.springframework.boot'
 
 	group = 'com.example'
 	version = "1.0.0-SNAPSHOT"
