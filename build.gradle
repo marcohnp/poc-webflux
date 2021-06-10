@@ -1,6 +1,7 @@
 buildscript {
 	repositories {
 		mavenCentral()
+		jcenter()
 	}
 	dependencies {
 		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.1.9.RELEASE"
@@ -31,10 +32,6 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
-
 allprojects {
 	apply plugin: 'java'
 	apply plugin: 'io.spring.dependency-management'
@@ -49,10 +46,7 @@ allprojects {
 
 	repositories {
 		mavenCentral()
-	}
-
-	test {
-		useJUnitPlatform()
+		jcenter()
 	}
 
 	dependencyManagement {
@@ -62,8 +56,11 @@ allprojects {
 	}
 
 	dependencies {
+		implementation group: 'org.springframework.plugin', name: 'spring-plugin-core', version: '2.0.0.RELEASE'
 		implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 		implementation 'org.springframework.boot:spring-boot-starter-webflux'
+		implementation 'io.springfox:springfox-boot-starter:3.0.0'
+		implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
