@@ -2,11 +2,12 @@ package com.pocwebflux.client.mapper;
 
 import com.pocwebflux.client.entity.ClientEntity;
 import com.pocwebflux.client.model.ClientModel;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.util.Optional;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ClientMapper {
 
     public static ClientModel mapToModel(ClientEntity entity) {

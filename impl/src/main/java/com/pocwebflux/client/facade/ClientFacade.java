@@ -1,10 +1,10 @@
 package com.pocwebflux.client.facade;
 
+import com.pocwebflux.client.model.ClientFindModel;
 import com.pocwebflux.client.model.ClientModel;
 import com.pocwebflux.client.service.ClientService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.ClientResponse;
 import reactor.core.publisher.Flux;
 
 @Component
@@ -13,7 +13,7 @@ public class ClientFacade {
 
     private final ClientService clientService;
 
-    public Flux<ClientModel> findAll() {
-        return clientService.findAll();
+    public Flux<ClientModel> find(ClientFindModel parameters) {
+        return clientService.find(parameters);
     }
 }

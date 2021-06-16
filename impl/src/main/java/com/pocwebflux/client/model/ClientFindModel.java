@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientModel {
+public class ClientFindModel {
 
     private String id;
     private String name;
     private String cpf;
     private String phone;
     private String email;
+    private Integer page;
+    private Integer size;
 }
