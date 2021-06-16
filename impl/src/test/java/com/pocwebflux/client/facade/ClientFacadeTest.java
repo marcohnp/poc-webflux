@@ -1,6 +1,5 @@
 package com.pocwebflux.client.facade;
 
-import com.pocwebflux.client.model.ClientFindModel;
 import com.pocwebflux.client.service.ClientService;
 import com.pocwebflux.client.stub.model.ClientFindModeltStub;
 import com.pocwebflux.client.stub.model.ClientModelStub;
@@ -20,7 +19,7 @@ class ClientFacadeTest {
     private ClientService clientService;
 
     @Test
-    void find_should_return_sucess(){
+    void find_should_return_sucess() {
         doReturn(Flux.just(ClientModelStub.createClientModel())).when(clientService).find(ClientFindModeltStub.createClientFindModel());
 
         StepVerifier.create(clientService.find(ClientFindModeltStub.createClientFindModel()))

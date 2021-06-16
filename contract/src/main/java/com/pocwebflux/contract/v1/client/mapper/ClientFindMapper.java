@@ -1,7 +1,6 @@
 package com.pocwebflux.contract.v1.client.mapper;
 
 import com.pocwebflux.client.model.ClientFindModel;
-import com.pocwebflux.client.model.ClientModel;
 import com.pocwebflux.contract.v1.client.model.request.ClientFindRequest;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -21,6 +20,7 @@ public class ClientFindMapper {
                         .email(request.getEmail())
                         .page(request.getPage())
                         .size(request.getSize())
-                .build()).orElse(null);
+                        .build())
+                .orElse(null);
     }
 }

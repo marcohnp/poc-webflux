@@ -11,7 +11,7 @@ import org.springframework.util.ObjectUtils;
 import reactor.core.publisher.Flux;
 
 @AllArgsConstructor
-public class ClientFindRepositoryImpl implements ClientFindRepository{
+public class ClientFindRepositoryImpl implements ClientFindRepository {
 
     private final ReactiveMongoTemplate mongoTemplate;
 
@@ -30,28 +30,28 @@ public class ClientFindRepositoryImpl implements ClientFindRepository{
         return mongoTemplate.find(Query.query(criteria).with(pageable), ClientEntity.class);
     }
 
-    private void criteriaById(String id, Criteria criteria){
-        if(!ObjectUtils.isEmpty(id))
+    private void criteriaById(String id, Criteria criteria) {
+        if (!ObjectUtils.isEmpty(id))
             criteria.and("id").is(id);
     }
 
-    private void criteriaByName(String name, Criteria criteria){
-        if(!ObjectUtils.isEmpty(name))
+    private void criteriaByName(String name, Criteria criteria) {
+        if (!ObjectUtils.isEmpty(name))
             criteria.and("name").regex(name, CASE_SENSTIVE);
     }
 
-    private void criteriaByCpf(String cpf, Criteria criteria){
-        if(!ObjectUtils.isEmpty(cpf))
+    private void criteriaByCpf(String cpf, Criteria criteria) {
+        if (!ObjectUtils.isEmpty(cpf))
             criteria.and("cpf").is(cpf);
     }
 
-    private void criteriaByPhone(String phone, Criteria criteria){
-        if(!ObjectUtils.isEmpty(phone))
+    private void criteriaByPhone(String phone, Criteria criteria) {
+        if (!ObjectUtils.isEmpty(phone))
             criteria.and("phone").is(phone);
     }
 
-    private void criteriaByEmail(String email, Criteria criteria){
-        if(!ObjectUtils.isEmpty(email))
+    private void criteriaByEmail(String email, Criteria criteria) {
+        if (!ObjectUtils.isEmpty(email))
             criteria.and("email").is(email);
     }
 }

@@ -13,12 +13,12 @@ public class ClientMapper {
     public static ClientModel mapToModel(ClientEntity entity) {
         return Optional.ofNullable(entity)
                 .map(clientEntity -> ClientModel.builder()
-                .id(clientEntity.getId())
-                .name(clientEntity.getName())
-                .cpf(clientEntity.getCpf())
-                .phone(clientEntity.getPhone())
-                .email(clientEntity.getEmail())
-                .build())
+                        .id(clientEntity.getId())
+                        .name(clientEntity.getName())
+                        .cpf(clientEntity.getCpf())
+                        .phone(clientEntity.getPhone())
+                        .email(clientEntity.getEmail())
+                        .build())
                 .orElse(null);
     }
 }

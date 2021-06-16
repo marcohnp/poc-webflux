@@ -3,7 +3,6 @@ package com.pocwebflux.contract.v1.client;
 import com.pocwebflux.contract.v1.client.facade.ClientContractFacade;
 import com.pocwebflux.contract.v1.client.model.request.ClientFindRequest;
 import com.pocwebflux.contract.v1.client.model.response.ClientResponse;
-import com.pocwebflux.contract.v1.exception.StandardError;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

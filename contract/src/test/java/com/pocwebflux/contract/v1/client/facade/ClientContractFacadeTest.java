@@ -1,7 +1,6 @@
 package com.pocwebflux.contract.v1.client.facade;
 
 import com.pocwebflux.client.facade.ClientFacade;
-import com.pocwebflux.client.model.ClientFindModel;
 import com.pocwebflux.contract.v1.client.stub.model.ClientFindModelStub;
 import com.pocwebflux.contract.v1.client.stub.model.ClientModelStub;
 import com.pocwebflux.contract.v1.client.stub.request.ClientFindRequestStub;
@@ -15,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
@@ -30,7 +28,7 @@ class ClientContractFacadeTest {
     private ClientContractFacade clientContractFacade;
 
     @Test
-    void find(){
+    void find() {
         doReturn(Flux.just(ClientModelStub.createClientModel())).when(clientFacade).find(ClientFindModelStub.createClientFindModel());
 
         StepVerifier.create(clientContractFacade.find(ClientFindRequestStub.createClientFindRequest()))
